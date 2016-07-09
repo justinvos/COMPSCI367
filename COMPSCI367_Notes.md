@@ -41,3 +41,15 @@ A **solution** is a sequence of actions leading from the initial state to a goal
 **Modus Pones**: $\because a\Rightarrow b \text{ and } a=\text{True}\therefore b=\text{True}$.
 
 **And-Elimination**: $\because a\wedge b\therefore a=\text{True}\text{ and }b=\text{True}$.
+
+
+## Heuristic search
+A **heuristic function** $h(n)$ is an estimated cost of the cheapest path from the state node to a goal state.
+
+**Greedy search** or **best-first search** expands to the node with the lowest $h(x)$.
+
+**A\* search** expands to the node with the lowest $h(x)+g(x)$ where $g(x)$ is the cost to the node.
+
+An **admissible heuristic** is one that never overestimates the cost to reach the goal.
+
+A **consistent heuristic** is where $h(x_i)\le h(x_i)+c(x_i,a,x_{i+1})$.
