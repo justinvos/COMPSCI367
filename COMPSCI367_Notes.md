@@ -25,15 +25,19 @@ A **problem** is defined by four items:
 A **solution** is a sequence of actions leading from the initial state to a goal state.
 
 ### Uninformed search
+A **state** is a representation of a physical configuration.
+
+A **node** is a data structure constituting part of a search tree which includes state, a pointer to the parent node, an action, the path cost $g(x)$
+
 **Breadth-first search** expands the shallowest unexpanded node.
 
 **Depth-first search** expands the deepest unexpanded node.
 
-**Uniform-cost search**
+**Uniform-cost search** expands the cheapest unexpanded node.
 
-**Depth-limited search**
+**Depth-limited search** expands the deepest unexpanded node up to a specified depth limit.
 
-**Iterative deepening search**
+**Iterative deepening search** expands the deepest unexpanded node up to an increasing depth limit.
 
 
 ## Propositional logic
