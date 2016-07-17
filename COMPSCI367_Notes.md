@@ -44,7 +44,7 @@ A **node** is a data structure constituting part of a search tree which includes
 
 **Modus Pones**: $\because a\Rightarrow b \text{ and } a=\text{True}\therefore b=\text{True}$.
 
-**And-Elimination**: $\because a\wedge b\therefore a=\text{True}\text{ and }b=\text{True}$.
+**And-Elimination**: $\because a\wedge b=\text{True}\therefore a=\text{True}\text{ and }b=\text{True}$.
 
 
 ## Heuristic search
