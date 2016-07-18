@@ -1,9 +1,17 @@
 # COMPSCI 367 Notes
 
+## History of Artificial Intelligence
+
+**Alan Turing** was the inventor of the field of artificial intelligence.
+
+The **Turing Machine** is a hypothetical computing machine which can use a predefined set of rules to determine a result from a set of input variables.
+
+The **Universal Machine** is a Turing Machine that simulates all possible Turing Machines.
+
 ## Agents
 An **agent** is an entity that perceives and acts, $f: P\rightarrow A$.
 
-### Problem types
+## Problem types
 A **single-state problem** is deterministic, fully observable problem where the solution is a sequence from the known initial state.
 
 A **sensorless problem** is a non-observable problem is where the solution is a sequence from any of the possible states.
@@ -24,7 +32,7 @@ A **problem** is defined by four items:
 
 A **solution** is a sequence of actions leading from the initial state to a goal state.
 
-### Uninformed search
+## Uninformed search
 A **state** is a representation of a physical configuration.
 
 A **node** is a data structure constituting part of a search tree which includes state, a pointer to the parent node, an action, the path cost $g(x)$
