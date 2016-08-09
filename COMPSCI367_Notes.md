@@ -65,3 +65,49 @@ A **heuristic function** $h(n)$ is an estimated cost of the cheapest path from t
 An **admissible heuristic** is one that never overestimates the cost to reach the goal.
 
 A **consistent heuristic** is where $h(x_i)\le h(x_i)+c(x_i,a,x_{i+1})$.
+
+## CLIPS
+
+```(assert <facts>)``` creates a new fact.
+
+```(retract <fact>)``` removes a fact from memory.
+
+```(facts)``` lists the current facts
+
+```(clear)``` clears the memory completely.
+
+```(reset)``` clears just the current facts.
+
+```(run)``` runs the current execution.
+
+```(run n)``` runs only $n$ number of rules.
+
+```(agenda)``` displays the list of rules n memory.
+
+```(deftemplate <template name> "comment"[list of slots])```
+
+```deffacts``` creates initial knowledge and is only asserted when the engine is reset.
+
+Variables are defined ```?name```.
+
+Operations are pre-fix e.g. ```(* 2 3)```
+
+
+```
+(deffunction <function name> (<parameter list>)
+    (<function body>)
+)
+```
+
+
+```
+(defrule
+  (<input fact> value)
+  =>
+  (<output fact> value)
+)
+```
+
+**Salience** determines the priority of the rule to be fired.
+
+```(printout t "message" crlf)``` prints out to standard output with a carriage return (line end).
