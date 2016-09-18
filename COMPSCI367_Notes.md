@@ -209,3 +209,27 @@ There are four cases to consider for these recursive problems:
 2. If there are some positive and some negative examples, then choose the best attribute to split them.
 3. If there are no examples left, it means that no example has been observed for this combination of attribute values and we return a default value calculated from the plurality classification of all the examples that were used in constructing the node's parent.
 4. If there are no attributes left, but both positive and negative examples are left, it means that these examples have exactly the same description, but different classifications. This can happen because there is an error or noise in the data; because the domain is non-deterministic; or because we cannot observe an attribute that would distinguish the examples. The best we can do is return the plurality classification of the remaining examples.
+
+### Reasoning with Uncertainty
+
+An **agent** is an entity capable of perceiving the world and performing some or all of the following functions: reasoning, learning, communication, planning and action.
+
+The **belief view** on probability see probabilities as the belief or confidence that a certain event will occur.
+
+A **possible world** is a possible way the world (environment) of the agent could be. It is described by several variables, each variable $X$ has a domain $dom(X)$, which is the set of all possible values.
+
+The **set of all possible worlds** is denoted $\Omega$.
+
+A **proposition** specifies possible valuations of variables.
+
+We say that the possible world $\omega$ **satisfies** proposition $\alpha$, $\omega\models{a}$ if $\alpha$ holds in the world $\omega$.
+
+A **tautology** is a proposition that holds in all possible worlds i.e. $\forall\omega\in\Omega:\omega\vDash\alpha_{Tautology}$.
+
+A **contradiction** is a proposition that never holds in all the possible worlds i.e. $\forall\omega\in\Omega:\omega\nvDash\alpha$.
+
+A **belief measure** is a function $\mu:S^{\Omega}\rightarrow[0,1]$ such that for any $S\subseteq\Omega$, $\mu(S)$ expresses the amount of belief in the fact that the actual world is one of the possible worlds in $S$.
+
+Any belief measure must satisfy the following properties:
+1. **Unit measure**: We have full belief in the fact that the actual world is one of the possible worlds i.e. \mu(\Omega)=1.
+2. **Additivity**: Suppose $S_1$ and $S_2$ are disjoint subsets of $\Omega$. Then our belief that the actual world  is in $S_1\cup{S_2}$ is the sum of our belief that the actual world is in $S_1$ and our belief that the actual world is in $S_2$, i.e. $\mu(S_1\cup{S_2})=\mu{S_1}+\mu(S_2)$.
