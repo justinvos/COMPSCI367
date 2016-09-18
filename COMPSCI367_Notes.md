@@ -189,4 +189,23 @@ $h^\ast=\text{arg max}_{h\in \mathcal{H}}P(\text{data}|h)P(h)$
 
 There is a tradeoff between the expressiveness of a hypothesis space and the complexity of finding a good hypothesis within that space.
 
-A second readon to prefer simple hypothesis spaces is that computing $h(x)$ will be faster and more efficient with simpler representations.
+A second reason to prefer simple hypothesis spaces is that computing $h(x)$ will be faster and more efficient with simpler representations.
+
+### Learning Decision Trees
+A **decision tree** represents a function that takes a vector of attribute values as input and returns a decision - a single output value.
+
+A **Boolean classification** is a type of decision trees where the output is either true (a positive example) or false (a negative exmaple).
+
+A decision tree reaches its decision by performing a sequence of tests. Each internal node in the tree corresponds to a test of the value of one of the input attributes $A_i$ and the branches from the node are labeled with the possible values of the attribute $A_i=v_{ik}$. Each leaf node in the tree specifies a value to be returned by the function.
+
+A **Boolean decision tree** is logically equivalent to the assertation that the goal attribute is true if and only if the inout attributes satisfy one of the paths leading to a leaf with value true i.e. $\text{Goal}\Leftrightarrow(Path_1\lor Path_2\lor \cdots)$, where each Path is a conjunction of attribute-value tests required to follow that path.
+
+General search on decision trees can be extremely slow in a broad and/or deep tree. Therefore finding the best tree (consistent and smallest) becomes an intractable problem.
+
+The greedy divide-and-conquer approach always test the most important attribute first. This test divides the problem up into smaller subproblems that can then be solved recursively. By "most important attribute", we mean the one that makes the most difference to the classification of an example.
+
+There are four cases to consider for these recursive problems:
+1. If the remaining examples are all positive or all negative, then we are done.
+2. If there are some positive and some negative examples, then choose the best attribute to split them.
+3. If there are no examples left, it means that no example has been observed for this combination of attribute values and we return a default value calculated from the plurality classification of all the examples that were used in constructing the node's parent.
+4. If there are no attributes left, but both positive and negative examples are left, it means that these examples have exactly the same description, but different classifications. This can happen because there is an error or noise in the data; because the domain is non-deterministic; or because we cannot observe an attribute that would distinguish the examples. The best we can do is return the plurality classification of the remaining examples.
