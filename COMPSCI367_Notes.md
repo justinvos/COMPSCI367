@@ -70,15 +70,21 @@ A **consistent heuristic** is where $h(x_i)\le h(x_i)+c(x_i,a,x_{i+1})$.
 
 ### CLIPS
 
+#### Facts
+
+A **fact** is a statement that is declared to be true.
+
+`(facts)` lists the current facts
+
 `(assert <facts>)` creates a new fact.
 
 `(retract <fact>)` removes a fact from memory.
 
-`(facts)` lists the current facts
-
 `(clear)` clears the memory completely.
 
-`(reset)` clears just the current facts.
+`(deffacts <facts>)` defines initial facts that are only asserted when the engine is reset.
+
+`(reset)` clears just the current facts and reloads all the initial facts.
 
 `(run)` runs the current execution.
 
@@ -88,7 +94,7 @@ A **consistent heuristic** is where $h(x_i)\le h(x_i)+c(x_i,a,x_{i+1})$.
 
 `(deftemplate <template name> "comment"[list of slots])`
 
-`deffacts` creates initial knowledge and is only asserted when the engine is reset.
+
 
 Variables are defined `?name`.
 
