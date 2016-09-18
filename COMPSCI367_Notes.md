@@ -226,10 +226,10 @@ We say that the possible world $\omega$ **satisfies** proposition $\alpha$, $\om
 
 A **tautology** is a proposition that holds in all possible worlds i.e. $\forall\omega\in\Omega:\omega\vDash\alpha_{Tautology}$.
 
-A **contradiction** is a proposition that never holds in all the possible worlds i.e. $\forall\omega\in\Omega:\omega\nvDash\alpha$.
+A **contradiction** is a proposition that never holds in all the possible worlds i.e. $\forall\omega\in\Omega:\omega\nvDash\alpha_{Contradiction}$.
 
 A **belief measure** is a function $\mu:S^{\Omega}\rightarrow[0,1]$ such that for any $S\subseteq\Omega$, $\mu(S)$ expresses the amount of belief in the fact that the actual world is one of the possible worlds in $S$.
 
 Any belief measure must satisfy the following properties:
-1. **Unit measure**: We have full belief in the fact that the actual world is one of the possible worlds i.e. \mu(\Omega)=1.
+1. **Unit measure**: We have full belief in the fact that the actual world is one of the possible worlds i.e. $\mu(\Omega)=1$.
 2. **Additivity**: Suppose $S_1$ and $S_2$ are disjoint subsets of $\Omega$. Then our belief that the actual world  is in $S_1\cup{S_2}$ is the sum of our belief that the actual world is in $S_1$ and our belief that the actual world is in $S_2$, i.e. $\mu(S_1\cup{S_2})=\mu{S_1}+\mu(S_2)$.
