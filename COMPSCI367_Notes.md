@@ -233,3 +233,30 @@ A **belief measure** is a function $\mu:S^{\Omega}\rightarrow[0,1]$ such that fo
 Any belief measure must satisfy the following properties:
 1. **Unit measure**: We have full belief in the fact that the actual world is one of the possible worlds i.e. $\mu(\Omega)=1$.
 2. **Additivity**: Suppose $S_1$ and $S_2$ are disjoint subsets of $\Omega$. Then our belief that the actual world  is in $S_1\cup{S_2}$ is the sum of our belief that the actual world is in $S_1$ and our belief that the actual world is in $S_2$, i.e. $\mu(S_1\cup{S_2})=\mu{S_1}+\mu(S_2)$.
+
+### R
+
+The **print** method, `print(<string message>)`, prints a message to the standard output.
+
+A **comment** can be created by prefixing a message with `#`, e.g. `# a comment`.
+
+A variable can be **assigned** a value using `<variable> <- <value>`, e.g. `x <- 2`.
+
+The **data structures** of R:
+* An **array** is a ordered collection of elements where all of the elements must be the same type.
+* A **vector** is a one-dimensional array.
+  * A value can be converted into a vector using `as.vector(<value>)`.
+  * A vector can be made from individual elements being concatenated with `c(<value1>, <value2>, ...)`.
+* A **matrix** is a two-dimensional array.
+  * A value can be converted into a matrix using `as.matrix(<value>)`.
+* A **data frame** is a collection of vectors of vectors that are all the same length and each vector can be of different type.
+  * A value can be converted into a data frame using `as.data.frame(<value>)`.
+* A **list** is an ordered collection of elements of any type.
+
+#### Packages
+
+A **package** is a bundle of R code available to install.
+
+Packages can be **installed** using `install.packages(<string packageName>)`.
+
+Packages can be **loaded** into a script file with `require(<string packageName>)`.
