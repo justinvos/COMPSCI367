@@ -212,6 +212,8 @@ There are four cases to consider for these recursive problems:
 
 ### Reasoning with Uncertainty
 
+#### Probability
+
 An **agent** is an entity capable of perceiving the world and performing some or all of the following functions: reasoning, learning, communication, planning and action.
 
 The **belief view** on probability see probabilities as the belief or confidence that a certain event will occur.
@@ -233,6 +235,41 @@ A **belief measure** is a function $\mu:S^{\Omega}\rightarrow[0,1]$ such that fo
 Any belief measure must satisfy the following properties:
 1. **Unit measure**: We have full belief in the fact that the actual world is one of the possible worlds i.e. $\mu(\Omega)=1$.
 2. **Additivity**: Suppose $S_1$ and $S_2$ are disjoint subsets of $\Omega$. Then our belief that the actual world  is in $S_1\cup{S_2}$ is the sum of our belief that the actual world is in $S_1$ and our belief that the actual world is in $S_2$, i.e. $\mu(S_1\cup{S_2})=\mu{S_1}+\mu(S_2)$.
+
+The **axioms of probability** ares:
+1. The probability of an event is a non-negative real number, $P(E)\in\Bbb{R}$.
+2. The probability of the entire sample space is equal to 1, $P(\Omega)=1$.
+3. If $\alpha\wedge \beta$ is a contradiction, then $P(\alpha\vee\beta)=P(\alpha)+P(\beta)$
+
+A variable $X$ is called a **random variable** if the agent does not know its value in the actual world.
+
+A **probability distribution** a random variable $X$, $P(X)$, is a function from the $dom(X)$ into $[0,1]$ such that, given a value $x\in dom(X)$, $P(x)=P(X=x)$.
+
+A **joint probability distribution** over two random variables $X$ and $Y$, $P(X,Y)$, is a function from $dom(X)\times dom(Y)$ into $[0,1]$ such that, given $x\in dom(X)$ and $y\in dom(Y)$, $P(x,y)=P(X=x\wedge Y=y)$.
+
+Two random variables $X$ and $Y$ are **independent** if $P(X,Y)=P(X)\times P(Y)$.
+
+The **joint probability** of two independent events is their product i.e. $P(a\wedge b)=P(a)\times P(b)$.
+
+The **conditional probability** is the measure of belief in proposition $h$ assuming that proposition $e$ already holds is $h$ given $e$, written $P(h|e)=\large\frac{P(h\wedge e)}{P(e)}$.
+
+The **hypothesis** $h$ is the event you are attempting to predict.
+
+The **evidence** $e$ is the current information you hold for believing that a possible hypothesis may be true.
+
+The **prior probability** is the initial degree of belief in the event.
+
+The **posterior probability** is the probability for the event after taking into account for the evidence.
+
+The **Laws of total probability** are:
+1. $P(h)=P(h|e)P(e)+P(h|\neg e)P(\neg e)$
+2. If $X$ is a variable $P(h)=\sum_{x\in dom(X)}{P(h|X=x)P(X=x)}$
+
+**Bayes' theorem** tells us how to update the agent's belief in the hypothesis as new evidence arrives. $P(h|e)=\large\frac{P(e|h)P(h)}{P(e)}$.
+
+**Bayes' theorem with existing evidence** is $P(h|e\wedge k)=\large\frac{P(e|h\wedge k)\times P(h|k)}{P(e|k)}$
+
+A random variable $X$ is **conditionally independent** of another random variable $Y$, given a third random variable $Z$ if $P(X,Y|Z)=P(X|Z)P(Y|Z)$.
 
 ### R
 
