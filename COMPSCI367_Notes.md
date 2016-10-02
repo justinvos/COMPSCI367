@@ -273,13 +273,17 @@ A random variable $X$ is **conditionally independent** of another random variabl
 
 ### R
 
-The **print** method, `print(<string message>)`, prints a message to the standard output.
-
-A **comment** can be created by prefixing a message with `#`, e.g. `# a comment`.
-
 A variable can be **assigned** a value using `<variable> <- <value>`, e.g. `x <- 2`.
 
-The **data structures** of R:
+The **primitive data types** are:
+* **Logical**: TRUE, FALSE
+* **Numeric**: 1,1.15
+* **Integer**: 2L, 100L
+* **String**: "string", 'string'
+
+A **comment** can be created by prefixing a string message with `#`, e.g. `# a comment`.
+
+The **data structures** are:
 * An **array** is a ordered collection of elements where all of the elements must be the same type.
 * A **vector** is a one-dimensional array.
   * A value can be converted into a vector using `as.vector(<value>)`.
@@ -289,6 +293,8 @@ The **data structures** of R:
 * A **data frame** is a collection of vectors of vectors that are all the same length and each vector can be of different type.
   * A value can be converted into a data frame using `as.data.frame(<value>)`.
 * A **list** is an ordered collection of elements of any type.
+
+The **print** method, `print(<string message>)`, prints a message to the standard output.
 
 #### Packages
 
