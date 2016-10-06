@@ -1,0 +1,9 @@
+"W3","Cb1_st","Outside_power","Prob"
+"live","on","live",1
+"dead","on","live",0
+"live","off","live",0
+"dead","off","live",1
+"live","on","dead",0
+"dead","on","dead",1
+"live","off","dead",0
+"dead","off","dead",1

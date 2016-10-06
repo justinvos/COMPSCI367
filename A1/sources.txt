@@ -1,0 +1,13 @@
+Much of my knowledge of the syntax of CLIPS is from the COMPSCI 367 Tutorials.
+
+Printing out messages and loading from a file.
+https://www.csie.ntu.edu.tw/~sylee/courses/clips/intro.htm
+
+Reading from console and assert the input into a fact.
+http://galahad.plg.inf.uc3m.es/~iat/USRGUIDE/node54.html
+
+The structure and architecture of the code is completely my own.
+
+Justin Vos
+UPI: jvos137
+ID: 6914129

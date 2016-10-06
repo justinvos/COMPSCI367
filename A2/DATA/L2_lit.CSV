@@ -1,0 +1,13 @@
+"L2_lit","W4","L2_st","Prob"
+"true","live","ok",1
+"false","live","ok",0
+"true","dead","ok",0
+"false","dead","ok",1
+"true","live","intermittent",0.5
+"false","live","intermittent",0.5
+"true","dead","intermittent",0
+"false","dead","intermittent",1
+"true","live","broken",0
+"false","live","broken",1
+"true","dead","broken",0
+"false","dead","broken",1
