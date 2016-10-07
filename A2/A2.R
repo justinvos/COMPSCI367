@@ -1,27 +1,50 @@
 require("gRbase", lib="~/app/R/lib")
 require("gRain", lib="~/app/R/lib")
 
-
-getDomain <- function(needleVar) {
-	dom <- c()
-	d <- read.csv("./DATA/domain.CSV", stringsAsFactors=FALSE)
-
-	row <- 1
-	for (var in d[, "Variable"]) {
-		#print(var)
-		if(var == needleVar) {
-			dom <- c(dom, d[row, "Domain"])
+getVariables <- function(domain) {
+	vars <- c()
+	for (var in domain[, "Variable"]) {
+		if(!is.element(var, vars)) {
+			vars <- c(vars, var)
 		}
-		row <- row + 1
 	}
-	return(dom)
+	return(vars)
 }
 
+getCpt <- function(filepath, var, domain, dependencies) {
+	d <- read.csv(paste(filepath, var, ".CSV", sep=""), stringsAsFactors=FALSE)
+	isDom = domain[,"Variable"] == var
+	varDom = domain[isDom, "Domain"]
+	isParent <- dependencies[,"Node"] == var
+	varDep <- dependencies[isParent, "Parent"]
+	strDeps <- paste(varDep, collapse="+")
+	strFormula <- paste("~", var, sep="")
+	if(length(varDep) > 0) {
+		strFormula <- paste(strFormula, "|", strDeps, sep="")
+	}
+	formula <- as.formula(strFormula)
+	cpt <- cptable(formula, values=d[,"Prob"], levels=varDom)
+	return(cpt)
+}
 
-cptOutsidePower <- cptable(~OutsidePower, values=c(50,50), levels=getDomain("Outside_power"))
-cptW5 <- cptable(~W5|OutsidePower, values=c(1,0,0,1), levels=c("live", "dead"))
-#pL1_lit <- cptable(~L1_lit|W0+L1_st, values=c(1,0,0,1,0.5,0.5,0,1,0,1,0,1), levels=getDomain("L1_lit"))
+genBSFromCSV <- function(filepath) {
+	domain <- read.csv(paste(filepath, "domain.CSV", sep=""), stringsAsFactors=FALSE)
+	dependencies <- read.csv(paste(filepath, "dependencies.CSV", sep=""), stringsAsFactors=FALSE)
+	cptTables = list()
+	vars <- getVariables(domain)
+	for(var in vars) {
+		cpt <- getCpt(filepath, var, domain, dependencies)
+		cptTables[[var]] <- cpt
+	}
+	net <<- grain(compileCPT(cptTables))
+	return(net)
+}
 
-cptlist <- compileCPT(list(cptOutsidePower, cptW5))
-
-net <- grain(cptlist)
+query <- function(list_h, list_e) {
+	prior <- querygrain(net, nodes=unlist(list_h), type="joint")
+	netWithEvidence <-setEvidence(net, evidence=list_e)
+	likelihood <- querygrain(netWithEvidence, nodes=unlist(list_h), type="joint")
+	probEvidence <- pEvidence(netWithEvidence)
+	post <- (prior * likelihood) / probEvidence
+	return(post)
+}
