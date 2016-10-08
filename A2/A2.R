@@ -1,7 +1,17 @@
 require("gRbase", lib="~/app/R/lib")
 require("gRain", lib="~/app/R/lib")
 
-getVariables <- function(domain) {
+getVarDomain <- function(var) {
+	isDom = domain[,"Variable"] == var
+	return(domain[isDom, "Domain"])
+}
+
+getVarDep <- function(var) {
+	isParent <- dependencies[,"Node"] == var
+	return(dependencies[isParent, "Parent"])
+}
+
+getVariables <- function() {
 	vars <- c()
 	for (var in domain[, "Variable"]) {
 		if(!is.element(var, vars)) {
@@ -13,10 +23,8 @@ getVariables <- function(domain) {
 
 getCpt <- function(filepath, var, domain, dependencies) {
 	d <- read.csv(paste(filepath, var, ".CSV", sep=""), stringsAsFactors=FALSE)
-	isDom = domain[,"Variable"] == var
-	varDom = domain[isDom, "Domain"]
-	isParent <- dependencies[,"Node"] == var
-	varDep <- dependencies[isParent, "Parent"]
+	varDom <- getVarDomain(var)
+	varDep <- getVarDep(var)
 	strDeps <- paste(varDep, collapse="+")
 	strFormula <- paste("~", var, sep="")
 	if(length(varDep) > 0) {
@@ -28,10 +36,10 @@ getCpt <- function(filepath, var, domain, dependencies) {
 }
 
 genBSFromCSV <- function(filepath) {
-	domain <- read.csv(paste(filepath, "domain.CSV", sep=""), stringsAsFactors=FALSE)
-	dependencies <- read.csv(paste(filepath, "dependencies.CSV", sep=""), stringsAsFactors=FALSE)
+	domain <<- read.csv(paste(filepath, "domain.CSV", sep=""), stringsAsFactors=FALSE)
+	dependencies <<- read.csv(paste(filepath, "dependencies.CSV", sep=""), stringsAsFactors=FALSE)
 	cptTables = list()
-	vars <- getVariables(domain)
+	vars <- getVariables()
 	for(var in vars) {
 		cpt <- getCpt(filepath, var, domain, dependencies)
 		cptTables[[var]] <- cpt
@@ -40,11 +48,36 @@ genBSFromCSV <- function(filepath) {
 	return(net)
 }
 
-query <- function(list_h, list_e) {
-	prior <- querygrain(net, nodes=unlist(list_h), type="joint")
-	netWithEvidence <-setEvidence(net, evidence=list_e)
-	likelihood <- querygrain(netWithEvidence, nodes=unlist(list_h), type="joint")
-	probEvidence <- pEvidence(netWithEvidence)
-	post <- (prior * likelihood) / probEvidence
-	return(post)
+query <- function(list_h, list_e=list()) {
+	tempNet = net
+	if(length(list_e) > 0) {
+		tempNet <-setEvidence(net, evidence=list_e)
+	}
+	return(querygrain(tempNet, nodes=unlist(list_h), type="joint"))
+}
+
+queryReason <- function(list_evidence) {
+	vars <- getVariables()
+
+	maxVar <- ""
+	maxVal <- ""
+	maxProb <- 0
+	for(var in vars) {
+		if(is.element(var, names(evidence))) { # skips variables that are in evidence
+			next
+		} else {
+			varPosterior <- query(list(var), evidence)
+
+			for(val in names(varPosterior)) {
+				valPosterior <- varPosterior[val]
+				if(valPosterior > maxProb) {
+					maxVar <- var
+					maxVal <- val
+					maxProb <- valPosterior
+				}
+			}
+		}
+	}
+
+	return(list("variable"=maxVar, "value"=maxVal, "prob"=as.numeric(maxProb)))
 }
