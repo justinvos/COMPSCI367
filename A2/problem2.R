@@ -1,4 +1,4 @@
-source("A2.R")
+source("problem1.R")
 
 filepath = "./DS1/"
 
