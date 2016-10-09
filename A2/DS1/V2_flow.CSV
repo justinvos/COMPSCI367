@@ -1,0 +1,17 @@
+"V2_flow","V2_open","V2_st","Prob"
+"true","true","ok",1
+"false","true","ok",0
+"true","false","ok",0
+"false","false","ok",1
+"true","true","broken",0
+"false","true","broken",1
+"true","false","broken",0
+"false","false","broken",1
+"true","true","stuck",1
+"false","true","stuck",0
+"true","false","stuck",1
+"false","false","stuck",0
+"true","true","leak",0
+"false","true","leak",1
+"true","false","leak",0
+"false","false","leak",1

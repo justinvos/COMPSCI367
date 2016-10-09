@@ -68,16 +68,16 @@ def getPossibilities(variables, domain):
 		return posibilities
 
 	posibilities = []
-	childPosibilities = getPossibilities(variables[1:], domain)
-	for value in domain[variables[0]]:
+	childPosibilities = getPossibilities(variables[:-1], domain)
+	for value in domain[variables[-1]]:
 		for childPosibility in childPosibilities:
-			posibilities += [[value] + list(childPosibility)]
+			posibilities += [list(childPosibility) + [value]]
 
 	return posibilities
 
 def genDataProfile(name, probFunction):
-	dependencies = CSVFile("dependencies.csv", has_row_heading=True).read()
-	domain = CSVFile("domain.csv", has_row_heading=True).read()
+	dependencies = CSVFile("dependencies.CSV", has_row_heading=True).read()
+	domain = CSVFile("domain.CSV", has_row_heading=True).read()
 	variables = [name]
 	if name in dependencies:
 		variables += dependencies[name]
@@ -88,7 +88,7 @@ def genDataProfile(name, probFunction):
 		prob = probFunction(variables, posibility)
 		rows += [posibility + [prob]]
 
-	csv_file = CSVFile(name + ".csv")
+	csv_file = CSVFile(name + ".CSV")
 	csv_file.write(rows)
 
 def openProb(variables, values):

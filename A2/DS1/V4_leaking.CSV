@@ -1,0 +1,9 @@
+"V4_leaking","V4_st","Prob"
+"true","ok",0
+"false","ok",1
+"true","broken",0
+"false","broken",1
+"true","stuck",0
+"false","stuck",1
+"true","leak",1
+"false","leak",0

@@ -1,9 +1,0 @@
-"V2_leaking","V2_st","Prob"
-"true","ok",0
-"true","broken",0
-"true","stuck",0
-"true","leak",1
-"false","ok",1
-"false","broken",1
-"false","stuck",1
-"false","leak",0
