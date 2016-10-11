@@ -96,20 +96,20 @@ def openProb(variables, values):
 
 genDataProfile("V1_open", openProb)
 genDataProfile("V2_open", openProb)
-genDataProfile("V3_open", openProb)
-genDataProfile("V4_open", openProb)
+#genDataProfile("V3_open", openProb)
+#genDataProfile("V4_open", openProb)
 genDataProfile("V5_open", openProb)
 genDataProfile("V6_open", openProb)
 genDataProfile("V7_open", openProb)
 genDataProfile("V8_open", openProb)
-genDataProfile("V9_open", openProb)
-genDataProfile("V10_open", openProb)
-genDataProfile("V11_open", openProb)
-genDataProfile("V12_open", openProb)
+#genDataProfile("V9_open", openProb)
+#genDataProfile("V10_open", openProb)
+#genDataProfile("V11_open", openProb)
+#genDataProfile("V12_open", openProb)
 genDataProfile("V13_open", openProb)
 genDataProfile("V14_open", openProb)
-genDataProfile("V15_open", openProb)
-genDataProfile("V16_open", openProb)
+#genDataProfile("V15_open", openProb)
+#genDataProfile("V16_open", openProb)
 
 def stateProb(variables, values):
 	selfState = values[0]
@@ -124,20 +124,20 @@ def stateProb(variables, values):
 
 genDataProfile("V1_st", stateProb)
 genDataProfile("V2_st", stateProb)
-genDataProfile("V3_st", stateProb)
-genDataProfile("V4_st", stateProb)
+#genDataProfile("V3_st", stateProb)
+#genDataProfile("V4_st", stateProb)
 genDataProfile("V5_st", stateProb)
 genDataProfile("V6_st", stateProb)
 genDataProfile("V7_st", stateProb)
 genDataProfile("V8_st", stateProb)
-genDataProfile("V9_st", stateProb)
-genDataProfile("V10_st", stateProb)
-genDataProfile("V11_st", stateProb)
-genDataProfile("V12_st", stateProb)
+#genDataProfile("V9_st", stateProb)
+#genDataProfile("V10_st", stateProb)
+#genDataProfile("V11_st", stateProb)
+#genDataProfile("V12_st", stateProb)
 genDataProfile("V13_st", stateProb)
 genDataProfile("V14_st", stateProb)
-genDataProfile("V15_st", stateProb)
-genDataProfile("V16_st", stateProb)
+#genDataProfile("V15_st", stateProb)
+#genDataProfile("V16_st", stateProb)
 
 
 def level1_flowProb(variables, values):
@@ -159,8 +159,8 @@ def level1_flowProb(variables, values):
 
 genDataProfile("V1_flow", level1_flowProb)
 genDataProfile("V2_flow", level1_flowProb)
-genDataProfile("V3_flow", level1_flowProb)
-genDataProfile("V4_flow", level1_flowProb)
+#genDataProfile("V3_flow", level1_flowProb)
+#genDataProfile("V4_flow", level1_flowProb)
 
 def level1_leakingProb(variables, values):
 	selfLeaking = values[0]
@@ -176,8 +176,8 @@ def level1_leakingProb(variables, values):
 
 genDataProfile("V1_leaking", level1_leakingProb)
 genDataProfile("V2_leaking", level1_leakingProb)
-genDataProfile("V3_leaking", level1_leakingProb)
-genDataProfile("V4_leaking", level1_leakingProb)
+#genDataProfile("V3_leaking", level1_leakingProb)
+#genDataProfile("V4_leaking", level1_leakingProb)
 
 
 def S1_detectProb(variables, values):
@@ -217,10 +217,10 @@ genDataProfile("V5_flow", level2_flowProb)
 genDataProfile("V6_flow", level2_flowProb)
 genDataProfile("V7_flow", level2_flowProb)
 genDataProfile("V8_flow", level2_flowProb)
-genDataProfile("V9_flow", level2_flowProb)
-genDataProfile("V10_flow", level2_flowProb)
-genDataProfile("V11_flow", level2_flowProb)
-genDataProfile("V12_flow", level2_flowProb)
+#genDataProfile("V9_flow", level2_flowProb)
+#genDataProfile("V10_flow", level2_flowProb)
+#genDataProfile("V11_flow", level2_flowProb)
+#genDataProfile("V12_flow", level2_flowProb)
 
 def level2_leakingProb(variables, values):
 	selfLeaking = values[0]
@@ -240,10 +240,10 @@ genDataProfile("V5_leaking", level2_leakingProb)
 genDataProfile("V6_leaking", level2_leakingProb)
 genDataProfile("V7_leaking", level2_leakingProb)
 genDataProfile("V8_leaking", level2_leakingProb)
-genDataProfile("V9_leaking", level2_leakingProb)
-genDataProfile("V10_leaking", level2_leakingProb)
-genDataProfile("V11_leaking", level2_leakingProb)
-genDataProfile("V12_leaking", level2_leakingProb)
+#genDataProfile("V9_leaking", level2_leakingProb)
+#genDataProfile("V10_leaking", level2_leakingProb)
+#genDataProfile("V11_leaking", level2_leakingProb)
+#genDataProfile("V12_leaking", level2_leakingProb)
 
 def S2_detectProb(variables, values):
 	selfDetect = values[0]
@@ -282,8 +282,8 @@ def level3_flowProb(variables, values):
 
 genDataProfile("V13_flow", level3_flowProb)
 genDataProfile("V14_flow", level3_flowProb)
-genDataProfile("V15_flow", level3_flowProb)
-genDataProfile("V16_flow", level3_flowProb)
+#genDataProfile("V15_flow", level3_flowProb)
+#genDataProfile("V16_flow", level3_flowProb)
 
 def level3_leakingProb(variables, values):
 	selfLeaking = values[0]
@@ -301,8 +301,8 @@ def level3_leakingProb(variables, values):
 
 genDataProfile("V13_leaking", level3_leakingProb)
 genDataProfile("V14_leaking", level3_leakingProb)
-genDataProfile("V15_leaking", level3_leakingProb)
-genDataProfile("V16_leaking", level3_leakingProb)
+#genDataProfile("V15_leaking", level3_leakingProb)
+#genDataProfile("V16_leaking", level3_leakingProb)
 
 
 def S3_detectProb(variables, values):
@@ -335,4 +335,4 @@ def e_thrustProb(variables, values):
 	return prob
 
 genDataProfile("E1_thrusts", e_thrustProb)
-genDataProfile("E2_thrusts", e_thrustProb)
+#genDataProfile("E2_thrusts", e_thrustProb)
