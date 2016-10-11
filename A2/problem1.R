@@ -62,7 +62,9 @@ query <- function(list_h, list_e=list()) {
 	if(length(list_e) > 0) {
 		tempNet <-setEvidence(net, evidence=list_e)
 	}
-	return(querygrain(tempNet, nodes=unlist(list_h), type="joint"))
+	result <- querygrain(tempNet, nodes=names(list_h), type="joint")
+
+	return(result)
 }
 
 queryReason <- function(list_evidence) {
@@ -75,9 +77,12 @@ queryReason <- function(list_evidence) {
 		if(is.element(var, names(evidence))) { # skips variables that are in the evidence
 			next
 		} else {
-			varPosterior <- query(list(var), evidence)
+			hypothesis = list("blah")
+			names(hypothesis) <- c(var)
 
-			for(val in names(varPosterior)) {
+			varPosterior <- query(hypothesis, evidence)
+
+			for(val in getVarDomain(var)) {
 				valPosterior <- varPosterior[val]
 				if(valPosterior > maxProb) {
 					maxVar <- var
