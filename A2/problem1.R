@@ -1,3 +1,5 @@
+# QUESTION 1(a)
+
 require("gRbase", lib="~/app/R/lib")
 require("gRain", lib="~/app/R/lib")
 
@@ -44,6 +46,7 @@ getCpt <- function(filepath, var, domain, dependencies) {
 	return(cpt)
 }
 
+# Generates a belief network from the given filepath. NOTE: filepath should be the path of the folder containing the data profiles (including the last forward slash) 
 genBSFromCSV <- function(filepath) {
 	domain <<- read.csv(paste(filepath, "domain.CSV", sep=""), stringsAsFactors=FALSE)
 	dependencies <<- read.csv(paste(filepath, "dependencies.CSV", sep=""), stringsAsFactors=FALSE)
@@ -57,6 +60,9 @@ genBSFromCSV <- function(filepath) {
 	return(net)
 }
 
+
+# QUESTION 1(b)
+
 query <- function(list_h, list_e=list()) {
 	tempNet = net
 	if(length(list_e) > 0) {
@@ -66,6 +72,8 @@ query <- function(list_h, list_e=list()) {
 
 	return(result)
 }
+
+# QUESTION 1(c)
 
 queryReason <- function(list_evidence) {
 	vars <- getVariables()
@@ -95,6 +103,8 @@ queryReason <- function(list_evidence) {
 
 	return(list("variable"=maxVar, "value"=maxVal, "prob"=as.numeric(maxProb)))
 }
+
+# QUESTION 1(d)
 
 # Gets all the column names of a data frame, except for the those given in the except vector
 getVars <- function(df, except=c("Prob")) {
@@ -240,7 +250,8 @@ variableElimination <- function(filepath) {
 
 	probL1_litFalse = L1_lit[L1_lit["L1_lit"] == "false","Prob"]
 
+	print("QUESTION 1(c) Output:")
 	print(paste("P(L1_lit = false|evidence) =", probL1_litFalse))
 }
 
-variableElimination("./DATA/")
+variableElimination("./data1/")
