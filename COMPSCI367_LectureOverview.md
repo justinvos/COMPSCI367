@@ -133,8 +133,7 @@
 ## Exam topics
 Ian
 1. Agents
-2. Turing Test
-3. Chinese room
+2. Turing Test, Chinese room
 4. Knowledge engineering
 4. Decision tree
 5. Philosophy of Artificial Intelligence
