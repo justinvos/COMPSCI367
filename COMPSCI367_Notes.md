@@ -4,11 +4,37 @@
 
 ### History of Artificial Intelligence
 
-**Alan Turing** was the inventor of the field of artificial intelligence.
+**Alan Turing** (1912-1954) was the inventor of the computer, a World War II codebreaker, the inventor of artificial intelligence, a pioneer of bioinformatics and a marathon runner.
 
-The **Turing Machine** is a hypothetical computing machine which can use a predefined set of rules to determine a result from a set of input variables.
+The **Turing Machine** is a thought experiment involving an infinitely long tape of cells containing symbols and a read/write head. The tape can be advanced one cell to the right or left and symbols in the cell can be overwritten according to a set of rules.
 
-The **Universal Machine** is a Turing Machine that simulates all possible Turing Machines.
+The **Universal Machine** is a single Turing Machine that simulates all possible Turing Machines.
+
+The **Turing test** is a test, developed by Alan Turing in 1950, of a machine's ability to exhibit intelligent behaviour equivalent to, or indistinguishable from, that of a human. Turing proposed that a human evaluator would judge natural language conversations between a human and a machine that is designed to generate human-like responses.
+
+**John Searle** (1932-) is an American philosopher who concepted the Chinese Room thought experiment which argues against strong artificial intelligence.
+
+The **Chinese Room** is a thought experiment in which a person in the Chinese room is passed questions from outside the room, and consults a library of books to formulate an answer.
+
+### Symbolic Reasoning
+
+**Symbols** are representations of elements.
+
+**States** are a particular condition something is in at a secific time.
+
+**Operators** are the action that transition from state to state.
+
+**Good old fashioned artificial intelligence** (GOFAI) relies on the physical symbol system hypothesis that:
+* Intelligent activity is achieved through the use of:
+	* Symbol patterns to represent the problem
+	* Operations on those patterns to generate potential solutions
+	* Search to select a solution among the possibilities
+* An artificial intelligence representation must:
+	* Handle qualitative knowledge
+	* Allow new knowledge to be inferred from facts and rules
+	* Allow representation of general principles
+	* Capture complex semantic meaning
+	* Allow for meta-level reasoning e.g. predicate calculus
 
 ### Agents
 An **agent** is an entity that perceives and acts, $f: P\rightarrow A$.
