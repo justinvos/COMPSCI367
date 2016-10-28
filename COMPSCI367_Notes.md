@@ -36,6 +36,43 @@ The **Chinese Room** is a thought experiment in which a person in the Chinese ro
 	* Capture complex semantic meaning
 	* Allow for meta-level reasoning e.g. predicate calculus
 
+**Predicate calculus** (PC) is a language for representing knowledge, amenable to reasoning using inference rules.
+
+The syntax of a language defines the form of statements:
+* The building blocks of statements in predicate calculus are terms and predicates.
+* **Terms** denote objects and properties
+	* Truth symbols e.g. `true`, `false`
+	* Constant symbols e.g. `dave`, `redBlock`, `happy`
+	* Variable symbols e.g. `X`, `Person`, `Answer1`
+	* Function expressions e.g. `mother(bob)`, `plus(1,3)`
+* **Predicates** define relationships between objects (arity defines the number of arguments)
+
+**Sentences** are statements about the world which contain terms and predicates.
+
+The **semantics** of a language defines the meaning of statements.
+
+An interpretation assigns meaning to terms/sentences
+* Must focus on a particular domain (universe of objects)
+* Terms are assigned values from the domain
+	* Constant $\rightarrow$ an object in the domain
+	* Variable $\rightarrow$ a subset of the domain
+	* Function symbol $\rightarrow$ a function mapping args to an object in the domain
+* Predicate symbols are assigned mappings from args to true/false
+
+A set of expressions $\{S_1, S_2, \cdots, S_n\}$ **logically implies** $S$ if every interpretation that satisfies $\{S_1, S_2, \cdots, S_n\}$ **satisfies** $S$, this is denoted $\{S_1, S_2, \cdots, S_n\}\vDash S$.
+
+**Modus Ponens**: if $S_1$ and $S_1\Rightarrow S_2$ are true, then infer $S_2$.
+
+**And Elimination**: if $S_1\wedge S_2$ is true, then infer $S_1$ and infer $S_2$.
+
+**And Introduction**: if $S_1$ and $S_2$ is true, then infer $S_1\wedge S_2$.
+
+**Universal Instantiation**: if $\forall X\ p(X)$ is true, then infer $p(a)$ for any $a$.
+
+There are two major symbolic reasoning programming languages used:
+* **LISP** (List Processing) was established in 1957, uses a functional style, but still is declarative.
+* **Prolog** (Programming in Logic) was established in 1971, uses a totally declarative style.
+
 ### Agents
 An **agent** is an entity that perceives and acts, $f: P\rightarrow A$.
 
