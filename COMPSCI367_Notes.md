@@ -73,6 +73,18 @@ There are two major symbolic reasoning programming languages used:
 * **LISP** (List Processing) was established in 1957, uses a functional style, but still is declarative.
 * **Prolog** (Programming in Logic) was established in 1971, uses a totally declarative style.
 
+### Knowledge elicitation
+
+**Knowledge elicitation** is getting knowledge from people as formal statements, descriptions or rules.
+
+**Machine learning** is getting the knowledge from data or examples (rule induction, neural networks) or learning the knowledge via evolution (genetic algorithms).
+
+**Logical analysis** is mapping the knowledge to a formal structure - the first stage in the design at which specific features of the implementation of a knowledge-based system.
+
+**Implementation analysis** is the details of the primitive inferencing mechanisms - pattern matching, inheritance, forward or backward chaining.
+
+The **knowledge elicitation bottleneck**  is the problem where eliciting and analysing knowledge is difficult and slows down development.
+
 ### Agents
 An **agent** is an entity that perceives and acts, $f: P\rightarrow A$.
 

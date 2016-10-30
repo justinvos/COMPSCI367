@@ -1,5 +1,99 @@
 # COMPSCI367 Textbook Notes
 
+## Knowledge, reasoning and planning
+
+### 7.1 Knowledge-based agents
+
+A **knowledge base** is a set of known sentences.
+
+A **sentence** represents some assertion about the world and is expressed in a language called a knowledge representation language.
+
+An **axiom** is a sentence to be taken as given without being derived from the other sentences.
+
+**Inference** is the deriving of new sentences from the old.
+
+**Background knowledge** or **initial knowledge** is the knowledge that is already known at the start.
+
+The **knowledge level** is the level where we only need to specify what the agent knows and what its goals are.
+
+The **implementation level** is the level where the actiosn are actually carried out by the agent.
+
+The **declarative approach** is to tell sentences until the agent knows how to operate in its environment.
+
+The **procedural approach** encodes desired behaviours directly as program code.
+
+### 7.3 Logic
+
+A **possible world** is a potentially real environment that the agent might be in.
+
+A **model** is a mathematical abstraction which simply fixes the truth or falsehood of every relevant statement.
+
+If a sentence $\alpha$ is true is a model $m$, we say $m$ **satisfies** $\alpha$ or sometimes $m$ is a model of $\alpha$.
+
+The set of all models of $\alpha$ is denoted $M(\alpha)$.
+
+**Entailment** is the idea that a sentence follows logically from another sentence. Denoted $\alpha\vDash\beta$, the sentence $\alpha$ entails the sentence $\beta$, meaning in every model in which $\alpha$ is true, $\beta$ is also true.
+
+**Model checking** is an inference algorithm that enumerates over all possible models to check that some sentence is true in all models in which the knowledge base is true.
+
+An inference algorithm is **sound** if it derives only entailed sentences.
+
+An inference algorithm is **complete** if it can derive any sentence that is entailed.
+
+**Grounding** refers to the connection between the logical reasoning processes and the real environment in which the agent exists.
+
+### 7.4 Propositional Logic
+
+A **propositional symbol** represents a proposition that can be true or false.
+
+Propositional symbols can be combined using logical connectives:
+* $\neg$. A sentence such as $\neg\alpha$ is called the **negation** of $\alpha$, and is true when the operand is false.
+* $\wedge$. A sentence such as $\alpha\wedge\beta$ is called the **conjunction** of $\alpha$ and $\beta$, and is true when both parts are true.
+* $\vee$. A sentence such as $\alpha\vee\beta$ is called the **disjunction** of $\alpha$ and $\beta$, and is true when either part is true.
+* $\Rightarrow$. A sentence such as $\alpha\Rightarrow\beta$ is called an **implication**. Its **premise** or **antecedent** is $\alpha$ and its **conclusion** or **consequent** is $\beta$, and is only false when the premise is true and the conclusion is false.
+* $\Leftrightarrow$. A sentence such as $\alpha\Leftrightarrow\beta$ is called a **biconditional** and is true when both parts are the same.
+
+The **operator precedence** is in the order of $\neg,\wedge,\vee,\Rightarrow,\Leftrightarrow$.
+
+### 7.5 Proposition Theorem Proving
+
+Two sentences $\alpha$ and $\beta$ are **logically equivalent** if they are true in the same set of models, we write this as $\alpha\equiv\beta$.
+
+A sentence is **valid** if it is true in all models, these sentences are also known as **tautologies**.
+
+The **deduction theorem** is that for any sentences $\alpha$ and $\beta$, $\alpha\vDash\beta$ if and only if the sentence $a\Rightarrow\beta$ is valid.
+
+A sentence is **satisfiable** if it is true in, or satisfied by some model.
+
+These **inference rules** can be applied to derive a proof:
+* **Modus Ponens** states that whenever sentences of the form $\alpha\Rightarrow\beta$ and $\alpha$ are given, then the sentence $\beta$ can be inferred.
+* **And Elimination** states that from a conjunction $\alpha\wedge\beta$, any of the parts, $\alpha$ or $\beta$, can be individually inferred.
+* The **resolution rule** states that if a disjunction $\alpha_1\vee\cdots\vee\alpha_k$ and a part of being false $\neg\alpha_i$ is given, the disjunction without that part $\alpha_1\vee\cdots\vee\alpha_{i-1}\vee\alpha_{i+1}\vee\cdots\vee\alpha_k$ can be inferred.
+
+**Monotonicity** refers to the idea that the set of entailed sentences can only increase as information is added to the knowledge base.
+
+A sentence is in **conjunction normal form** (CNF) if it is expressed as a conjunction of disjunctions.
+
+Each disjunction in CNF is known as a **clause**.
+
+The **PL-Resolution algorithm** takes a knowledge base $KB$ and a query sentence $q$, and finds whether $KB\wedge\neg q$ is unsatisfiable. It does this by converting $KB\wedge\neg q$ into CNF and resolving each pair of clauses to obtain a new clause. It stops when either there are no new clauses to be added, in which case $KB\nvDash q$, or when a pair of clauses resolve to the empty clause i.e. a contradiction, in which case $KB\vDash q$.
+
+The **resolution closure** $RC(S)$ of a set of clauses $S$, is the set of all clauses derivable by repeated application of the resolution rule to clauses in $S$ or their derivatives.
+
+A **definite clause** is a disjunction of literals of which exactly one is positive. A definite clause such as $\neg\alpha_1\vee\cdots\vee\neg\alpha_k\vee\beta$ can be written as an implication $(\alpha_1\wedge\cdots\wedge\alpha_k)\Rightarrow\beta$.
+
+A **goal clause** is a disjunction of only negative literals.
+
+A **Horn clause** is a disjunction of literals where at most one is positive.
+
+The **PL-FC-Entails algorithm** determines if a single proposition symbol $q$ is entailed by the knowledge base of definite clauses $KB$. If all the premises of an implication are known, then its conclusion is added to the set of known facts. The process continues until the query $q$ is added or until no further inferences can be made.
+
+A **forward-chaining algorithm** such as PL-FC-Entails is an example of the general concept of **data-driven reasoning**, which is reasoning where the focus of attention starts with the known data.
+
+The **PL-BC-Entails algorithm** works backward from the query and finds the implications to make the query as the conclusion true. If any of the premises are unknown, the process is applied to find that premise as a conclusion. It stops when either all the premises are known to make the query true or when a required premise cannot be known.
+
+A **backward-chaining algorithm** such as PL-BC-Entails is an example of the general concept of **goal-driven reasoning**, which starts the focus of attention with the query and works backwards, eventually using the known facts.
+
 ## Machine learning
 
 An agent is learning if it improves its performance on future tasks after making observations about the world.
